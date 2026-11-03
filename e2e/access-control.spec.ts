@@ -40,3 +40,8 @@ test("crisis signposting is driven by stored answers, not by the URL", async ({ 
   await expect(page.getByRole("heading", { name: /answers have been sent/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: "If you need help now" })).toHaveCount(0);
 });
+
+test("health check reports the database is ready", async ({ request }) => {
+  const res = await request.get("/api/health");
+  expect(await res.json()).toEqual({ status: "ok" });
+});

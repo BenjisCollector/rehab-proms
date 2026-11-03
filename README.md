@@ -4,6 +4,8 @@ Remote monitoring of Patient Reported Outcome Measures (PROMs) for a rehabilitat
 
 > **Status: portfolio project.** Not a medical device, not clinically validated, not approved or assured by the NHS or any regulator. All people and data in it are synthetic. See [Status and limitations](#status-and-limitations).
 
+**Live demo:** https://rehab-proms.vercel.app (demo accounts below). The demo database lives in the serverless instance's temporary storage, so it resets when the instance restarts and separate instances do not share data. Do not enter real personal information.
+
 | Patient (mobile) | Crisis signposting after a flagged answer |
 |---|---|
 | ![PHQ-9 on a phone](docs/screenshots/patient-questionnaire-mobile.png) | ![Confirmation with urgent help](docs/screenshots/patient-signposting.png) |
@@ -146,7 +148,7 @@ This project was built with Claude Code (an AI coding assistant) under my direct
 - **Portfolio project, not a medical device, not clinically validated.** It has no UKCA marking, no DCB0129 sign-off by a Clinical Safety Officer, no DTAC assessment and no DSPT submission. The governance documents are written in the style of those processes to show how I work; they are not certified evidence.
 - Synthetic data only. Names are invented and no NHS numbers are used.
 - Alert thresholds are the published severity cut-offs, used as illustrative defaults. A real service must agree them with its clinicians.
-- SQLite and a single Node process: fine for a demo, not for a multi-instance deployment (see ADR 0002).
+- SQLite and a single Node process: fine for a demo, not for a multi-instance deployment (see ADR 0002). The hosted demo shows this limitation directly: its data is per instance and temporary.
 - Single clinical team: every clinician can see every patient. Real deployments need caseload or organisation scoping.
 - No MFA, no NHS login or NHS CIS2 integration, no password reset, no consent capture, no data retention jobs, no Content Security Policy yet.
 - PHQ-9 and GAD-7 only; licensed instruments (for example EQ-5D) are deliberately not included.
