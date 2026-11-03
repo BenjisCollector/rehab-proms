@@ -1,0 +1,42 @@
+{
+  "name": "rehab-proms",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "DEMO_AUTO_SEED=1 next dev",
+    "build": "next build",
+    "start": "DEMO_AUTO_SEED=1 next start",
+    "start:e2e": "rm -f data/e2e.db* && DATABASE_PATH=data/e2e.db DEMO_AUTO_SEED=1 next start",
+    "seed": "tsx scripts/seed.ts",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "screenshots": "SCREENSHOTS=1 playwright test e2e/happy-path.spec.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "next": "16.4.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.1",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^4.1.12"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
